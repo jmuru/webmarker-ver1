@@ -1,7 +1,13 @@
 var express = require('express');
 var cool = require('cool-ascii-faces');
+var mongo - require('mongodb');
+var mongoose = require('mongoose');
+var privateData = require('./config.js')
 var app = express();
 
+// mongoose.connect(privateData.mongo_uri);
+
+console.log('hello');
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
