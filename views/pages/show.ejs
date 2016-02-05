@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/header.ejs %>
+  </head>
+  <body>
+  <% include ../partials/nav.ejs %>
+  <form id="search" action="/search" method="get">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+      <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+        <i class="material-icons">search</i>
+      </label>
+      <div class="mdl-textfield__expandable-holder">
+        <input class="mdl-textfield__input" type="text" id="sample6" name="search">
+        <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+      </div>
+    </div>
+  </form>
+    <ul class="bookmark-list mdl-list">
+      <% bookmarks.forEach(function(bk) { %>
+      <li class="mdl-list__item ">
+      <li class="mdl-list__item ">
+        <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-avatar">archive</i>
+          <span><a class="light-gray-icons" href="<%= bk.url %>"><%= bk.bookmarkName %></a></span>
+          <span class="mdl-list__item-text-body">
+            <a class="bookmark-link" target="_blank" href="<%= bk.url %>">
+              <i class="material-icons indigo-icons send-icon">send</i>
+            </a>
+          </span>
+        </span>
+        <span class="mdl-list__item-secondary-content">
+          <a class="mdl-list__item-secondary-action" target="_blank" href="/edit/<%= bk._id %>">
+            <i class=" indigo-icons material-icons">more_horiz</i>
+          </a>
+        </span>
+      </li>
+        </li>
+        <%}); %>
+      </ul>
+      <% include ../partials/footer.ejs %>
+    </body>
+  </html>

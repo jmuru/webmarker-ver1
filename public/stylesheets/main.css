@@ -1,27 +1,95 @@
-.jumbotron {
-  background: #532F8C;
-  color: white;
-  padding-bottom: 80px; }
-  .jumbotron .btn-primary {
-    background: #845ac7;
-    border-color: #845ac7; }
-    .jumbotron .btn-primary:hover {
-      background: #7646c1; }
-  .jumbotron p {
-    color: #d9ccee;
-    max-width: 75%;
-    margin: 1em auto 2em; }
-  .navbar + .jumbotron {
-    margin-top: -20px; }
-  .jumbotron .lang-logo {
-    display: block;
-    background: #B01302;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    border: 2px solid white; }
-    .jumbotron .lang-logo img {
-      max-width: 100%; }
+.index-title {
+	text-align: center;
+	margin: 0px;
+}
 
+.create-bookmark {
+	text-align: center;
+}
+
+.update-bookmark {
+	text-align: center;
+}
+
+.update-bookmark .bookmark-input {
+	font-size: 24px;
+}
+
+.create-bookmark .bookmark-input {
+	font-size: 24px;
+}
+
+#submit-btn {
+	margin-top: 2%;
+}
+.demo-list-control {
+  width: 300px;
+}
+
+.demo-list-radio {
+  display: inline;
+}
+
+.mdl-list {
+	display: block;
+	margin: 0 auto;
+}
+
+#bookmark-tags {
+	color: #6C7A89;
+}
+
+.mdl-list__item {
+	overflow: visible;
+	font-size: 32px;
+	min-height: 0px;
+	padding: 10px;
+}
+
+.bookmark-list {
+	/*text-align: center;*/
+	margin-top: 5%;
+	list-style: none;
+}
+
+.mdl-list__item-avatar.material-icons {
+	border-radius: 20% !important;
+}
+
+.mdl-list__item--three-line .mdl-list__item-text-body {
+	display: block;
+	margin-left: 2%;
+}
+
+.send-icon {
+	margin-left: 15%;
+}
+
+.indigo-icons {
+	color: #673AB7;
+}
+
+.light-gray-icons {
+	color: #6C7A89;
+	text-decoration: none;
+}
+
+.tag-items {
+	font-size: 16px;
+}
+
+.edit-field {
+	margin: 0 auto;
+	display: block;
+}
+
+#edit-title {
+	text-align: center;
+	margin: 0px;
+	color: #6C7A89;
+}
+
+#search {
+	text-align: center;
+	margin-top: 5%;
+}

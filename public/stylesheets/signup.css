@@ -1,0 +1,13 @@
+.signup-form {
+	text-align: center;
+	margin-bottom: 10%;
+}
+
+.signup-form form {
+	display: inline-block;
+}
+
+.signup-form form .mdl-textfield__input {
+	width: 80%;
+}
+
