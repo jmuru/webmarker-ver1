@@ -43,14 +43,15 @@ module.exports = function(app) {
 
 
     app.get('/search', function(req, res) {
-        bookmark.find({tags: req.query['search']}, function(err, bookmark) {
-            if(err) {
+        bookmark.find({
+            tags: req.query['search']
+        }, function(err, bookmark) {
+            if (err) {
                 return res.send(500)
             }
-            if(!bookmark) {
+            if (!bookmark) {
                 return res.send(404)
-            } 
-            else {
+            } else {
                 res.render('pages/show', {
                     bookmarks: bookmark,
                     tags: ['Social', 'Education', 'Misc', 'Work']
