@@ -41,7 +41,7 @@ module.exports = function(app) {
         })
     });
 
-
+    
     app.get('/search', function(req, res) {
         bookmark.find({
             tags: req.query['search']

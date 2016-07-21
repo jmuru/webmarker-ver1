@@ -4,43 +4,47 @@
     <% include ../partials/header.ejs %>
   </head>
   <body>
-  <% include ../partials/nav.ejs %>
-  <div class="mdl-tooltip mdl-tooltip--top" for="search-tooltip">
-    Search for bookmarks by tag.
-  </div>
-  <form id="search" action="/search" method="get">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-      <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
-        <i id="search-tooltip" class="material-icons">search</i>
-      </label>
-      <div class="mdl-textfield__expandable-holder">
-        <input class="mdl-textfield__input" type="text" id="sample6" name="search">
-        <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
-      </div>
+    <% include ../partials/nav.ejs %>
+    <div class="mdl-tooltip mdl-tooltip--top" for="search-tooltip">
+      Search for bookmarks by tag.
     </div>
-  </form>
+    <div id="tag-selection-area" >
+      <select name="" id="tag-selection" onchange="selectedItem('tag-selection')">
+        <option value="social">social</option>
+        <option value="education">education</option>
+        <option value="misc">misc</option>
+        <option value="work">work</option>
+      </select>
+
+    </div>
+
+    <form action="/search" method="get" id="result-form">
+      <input type="text" id="selection-result" name="search" readonly="true">
+      <input type="submit">
+    </form>
+
     <ul class="bookmark-list mdl-list">
       <% bookmarks.forEach(function(bk) { %>
       <li class="mdl-list__item ">
-      <li class="mdl-list__item ">
-        <span class="mdl-list__item-primary-content">
-          <i class="material-icons mdl-list__item-avatar">archive</i>
-          <span><a class="light-gray-icons" href="<%= bk.url %>"><%= bk.bookmarkName %></a></span>
-          <span class="mdl-list__item-text-body">
-            <a class="bookmark-link" target="_blank" href="<%= bk.url %>">
-              <i class="material-icons indigo-icons send-icon">send</i>
+        <li class="mdl-list__item ">
+          <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-avatar">archive</i>
+            <span><a class="light-gray-icons" href="<%= bk.url %>"><%= bk.bookmarkName %></a></span>
+            <span class="mdl-list__item-text-body">
+              <a class="bookmark-link" target="_blank" href="<%= bk.url %>">
+                <i class="material-icons indigo-icons send-icon">send</i>
+              </a>
+            </span>
+          </span>
+          <span class="mdl-list__item-secondary-content">
+            <a class="mdl-list__item-secondary-action" target="_blank" href="/edit/<%= bk._id %>">
+              <i class=" indigo-icons material-icons">more_horiz</i>
             </a>
           </span>
-        </span>
-        <span class="mdl-list__item-secondary-content">
-          <a class="mdl-list__item-secondary-action" target="_blank" href="/edit/<%= bk._id %>">
-            <i class=" indigo-icons material-icons">more_horiz</i>
-          </a>
-        </span>
-      </li>
         </li>
-        <%}); %>
-      </ul>
-      <% include ../partials/footer.ejs %>
-    </body>
-  </html>
+      </li>
+      <%}); %>
+    </ul>
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>

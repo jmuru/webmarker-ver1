@@ -2,4 +2,18 @@
   </main>
 </div>
 <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
-<script src="../js/main.js"></script>
+<script>
+	var selectedItem = function (selection_id) {
+		var selected = document.getElementById(selection_id);
+
+		var resultForm = document.getElementById("result-form");
+		var selected_input = document.getElementById("selection-result");
+
+		if (selected.selectedIndex == -1) {
+			alert("an option has not been selected");
+		}
+		selected_input.value = selected.options[selected.selectedIndex].text;
+	}
+
+
+</script>
