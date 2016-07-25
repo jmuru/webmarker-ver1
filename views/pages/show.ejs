@@ -5,21 +5,18 @@
   </head>
   <body>
     <% include ../partials/nav.ejs %>
-    <div class="mdl-tooltip mdl-tooltip--top" for="search-tooltip">
-      Search for bookmarks by tag.
-    </div>
 
 
-    <form action="/search" method="get" id="result-form">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input bookmark-input" type="text" id="search-by-tag">
-      <label class="mdl-textfield__label" for="search-by-tag">Search Bookmark By Tag</label>
+    <div id="search-form-container">
+      <form action="/search" method="get">
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" name="search" type="text" id="sample_search">
+          <label class="mdl-textfield__label" for="sample_search">Search by tag!</label>
+        </div>
+        <br>
+        <button  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">search</button>
+      </form>
     </div>
-    <br>
-    <button id="search-tag-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-      Search
-    </button>
-    </form>
 
     <ul class="bookmark-list mdl-list">
       <% bookmarks.forEach(function(bk) { %>

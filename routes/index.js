@@ -8,7 +8,7 @@ module.exports = function(app) {
     app.get('/show', function(req, res) {
         bookmark.find({}, function(err, bookmarks) {
             if (err) {
-                console.log('data could not be saved');
+                console.log(err);
             } else {
                 res.render('pages/show', {
                     bookmarks: bookmarks
@@ -36,23 +36,25 @@ module.exports = function(app) {
         })
     });
 
-    
-    app.get('/search', function(req, res) {
+
+    app.get("/search", function (req, res) {
+
+        console.log(req.query['search']);
+
         bookmark.find({
             tags: req.query['search']
         }, function(err, bookmark) {
             if (err) {
-                return res.send(500)
+                console.log(err);
             }
             if (!bookmark) {
-                return res.send(404)
-            } else {
-                res.render('pages/show', {
-                    bookmarks: bookmark,
-                    tags: ['Social', 'Education', 'Misc', 'Work']
-                });
+                return res.send(404);
             }
-        })
+            else {
+                res.render('pages/show', {bookmarks: bookmark})
+            }
+        }
+        )
     });
 
     app.get('/edit/:id', function(req, res) {
