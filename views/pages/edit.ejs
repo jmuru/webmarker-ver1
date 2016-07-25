@@ -11,41 +11,22 @@
 <div class="update-bookmark">
 	<form id="bookmark-form" action="/edit/<%= bookmark._id %>" method="post">
 	  <div class="edit-field mdl-textfield mdl-js-textfield">
-	    <input class="mdl-textfield__input bookmark-input" type="text" id="sample1" name="name">
+	    <input class="mdl-textfield__input bookmark-input" type="text" id="sample1" 
+	    name="name" value="<%= bookmark.bookmarkName %>">
 	    <label class="mdl-textfield__label" for="sample1"><%= bookmark.bookmarkName %></label>
 	  </div>
 	  <div class="edit-field mdl-textfield mdl-js-textfield">
-	    <input class="mdl-textfield__input bookmark-input" type="text" id="sample2" name="url">
+	    <input class="mdl-textfield__input bookmark-input" type="text" id="sample2" 
+	    name="url" value="<%= bookmark.url %>">
 	    <label class="mdl-textfield__label" for="sample2"><%= bookmark.url %></label>
 	  </div>
 	  <h4 id="bookmark-tags">Bookmark tags</h4>
-	  <ul class="demo-list-control mdl-list">
-	  	<% tagsList.forEach(function(tag,i,arr) {  %>
-	  		<% if(tag.indexOf(bookmark.tags)){ %>
-	  		   <li class="mdl-list__item tag-items">
-	  		     <span class="mdl-list__item-primary-content">
-	  		       <%= tag %>
-	  		     </span>
-	  		       <span class="mdl-list__item-secondary-action">
-	  		         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="<%= tag %>">
-	  		           <input type="checkbox" id="<%= tag %>" class="mdl-switch__input" name="<%= tag %>" />
-	  		         </label>
-	  		     </span>
-	  		   </li>
-	  		 <% } else{ %>  
-	  		   <li class="mdl-list__item tag-items">
-	  		     <span class="mdl-list__item-primary-content">
-	  		       <%= tag %>
-	  		     </span>
-	  		       <span class="mdl-list__item-secondary-action">
-	  		         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="<%= tag %>">
-	  		           <input type="checkbox" id="<%= tag %>" class="mdl-switch__input" name="<%= tag %>" checked />
-	  		         </label>
-	  		     </span>
-	  		   </li>
-	  		<% } %>
+	  
+	  	<% bookmark.tags.forEach(function(tag,i,arr) {  %>
+	  		<input type="checkbox" name="edtags" value="<%= tag %>" checked>
+	  		<label><%= tag %></label>
 	  	<% }); %>
-	  </ul>
+		<br>
 	  <button id="submit-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">
 	    Update Bookmark
 	  </button>

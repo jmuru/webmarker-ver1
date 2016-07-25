@@ -20,18 +20,13 @@ module.exports = function(app) {
     app.post('/bookmarks/create', function(req, res) {
         var name = req.body.name;
         var url = req.body.url;
-        var tags = [];
-        var validTags = ["social", "education", "work", "misc", "custom"];
-        validTags.forEach(function(el, i, arr) {
-            if (req.body[el]) {
-                tags.push(el);
-            }
-        });
+        var tags = req.body.tags;
         var newBookmark = new bookmark({
             bookmarkName: name,
             url: url,
             tags: tags
         });
+        console.log(newBookmark);
         newBookmark.save(function(err) {
             if (err) {
                 console.log('could not save to db');
@@ -81,8 +76,10 @@ module.exports = function(app) {
         }
         var update = {
             bookmarkName: req.body.name,
-            url: req.body.url
+            url: req.body.url,
+            tags: req.body.edtags
         }
+        console.log(update);
         bookmark.findByIdAndUpdate(id, update, function(err, data) {
             if (err) {
                 return res.send(500);

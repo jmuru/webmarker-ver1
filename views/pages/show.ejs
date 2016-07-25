@@ -8,20 +8,17 @@
     <div class="mdl-tooltip mdl-tooltip--top" for="search-tooltip">
       Search for bookmarks by tag.
     </div>
-    <div id="tag-selection-area" >
-      <select name="" id="tag-selection" onchange="selectedItem('tag-selection')">
-      <option disabled selected value> -- select a tag! -- </option>
-        <option value="social">social</option>
-        <option value="education">education</option>
-        <option value="misc">misc</option>
-        <option value="work">work</option>
-      </select>
 
-    </div>
 
     <form action="/search" method="get" id="result-form">
-      <input type="text" id="selection-result" name="search" readonly="true">
-      <input type="submit">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input bookmark-input" type="text" id="search-by-tag">
+      <label class="mdl-textfield__label" for="search-by-tag">Search Bookmark By Tag</label>
+    </div>
+    <br>
+    <button id="search-tag-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+      Search
+    </button>
     </form>
 
     <ul class="bookmark-list mdl-list">

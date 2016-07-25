@@ -7,8 +7,25 @@
 <body>
 <% include ../partials/nav.ejs %>
     <h1 class="index-title">Bookmarker</h1>
+    <div id="tag-add-container">
+      <h4 id="bookmark-tags">Bookmark tags</h4>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input bookmark-input" type="text" id="tag-add">
+        <label class="mdl-textfield__label" for="tag-add">add up to four tags</label>
+      </div>
+      <br>
+      <button id="add-tag-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+        Add Tag
+      </button>
+
+      <ul id="tag-display"></ul>
+    </div>
+    <hr>
     <div id="bookmark-space"class="create-bookmark">
         <form id="bookmark-form" action="/bookmarks/create" method="post">
+            <div id="hidden-tags">
+              
+            </div>
             <div id="input-container">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input bookmark-input" type="text" id="sample3" name="name">
@@ -21,49 +38,6 @@
             <label class="mdl-textfield__label" for="sample3">Paste Bookmark URL here</label>
           </div>
         </div>
-        <h4 id="bookmark-tags">Bookmark tags</h4>
-          <ul class="demo-list-control mdl-list">
-            <li class="mdl-list__item tag-items">
-              <span class="mdl-list__item-primary-content">
-                Social
-              </span>
-                <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-                    <input type="checkbox" id="switch-1" class="mdl-switch__input" name="social"/>
-                  </label>
-              </span>
-            </li>
-            <li class="mdl-list__item tag-items">
-              <span class="mdl-list__item-primary-content">
-                Education
-              </span>
-                <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
-                    <input type="checkbox" id="switch-2" class="mdl-switch__input" name="education" />
-                  </label>
-              </span>
-            </li>
-            <li class="mdl-list__item tag-items">
-              <span class="mdl-list__item-primary-content">
-                Work
-              </span>
-                <span class="mdl-list__item-secondary-action">
-                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-3">
-                    <input type="checkbox" id="switch-3" class="mdl-switch__input" name="work" />
-                  </label>
-              </span>
-            </li>
-            <li class="mdl-list__item tag-items">
-                <span class="mdl-list__item-primary-content">
-                    Misc
-                </span>
-                <span class="mdl-list__item-secondary-action">
-                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-4" >
-                        <input type="checkbox" id="switch-4" class="mdl-switch__input" name="misc"/>
-                    </label>
-                </span>
-            </li>
-          </ul>
           <button id="submit-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">
             Save Bookmark
           </button>

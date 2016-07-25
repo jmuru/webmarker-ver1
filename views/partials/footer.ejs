@@ -1,17 +1,67 @@
 </div>
-  </main>
+</main>
 </div>
 <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
 <script>
-	var selectedItem = function (selection_id) {
-		var selected = document.getElementById(selection_id);
+	var addTagBtn = document.getElementById("add-tag-btn");
+	var tagInput = document.getElementById("tag-add");
+	var tagList = document.getElementById("tag-display");
+	var tagsContainer = document.getElementById("hidden-tags");
+	var count = 0;
+	var indexPageId = 0;
+	var editPageId = 0;
 
-		var resultForm = document.getElementById("result-form");
-		var selected_input = document.getElementById("selection-result");
 
-		if (selected.selectedIndex == -1) {
-			alert("an option has not been selected");
-		}
-		selected_input.value = selected.options[selected.selectedIndex].text;
+
+	function createTagList() {
+		var li = document.createElement("li");
+		var button = document.createElement("button");
+		if (tagInput.value != "") {
+			li.textContent = tagInput.value
+			li.setAttribute("id", "item" + indexPageId);
+			tagList.appendChild(li);
+			indexPageId += 1;
+			tagInput.value = "";
+			
+		} else {
+			console.log("tag cannot be blank");
+		}		
 	}
+
+	function createCheckBox() {
+		var input = document.createElement("input");
+		if (tagInput.value != "") {
+			input.type = "hidden";
+			input.name = "tags";
+			input.value = tagInput.value;
+			tagsContainer.appendChild(input);
+		} else {
+			console.log("tag cannot be blank");
+		}	
+	}
+
+
+	addTagBtn.addEventListener('click', function (event) {
+		count++
+		if (count <= 4) {
+			createCheckBox();
+			createTagList();
+		} else {
+			console.log("reached max number of tags");
+		}
+	});
+
+
+
+
+
+</script>
+
+<script>
+	var deleteTag = document.getElementById("delete-btn");
+	var editTagsList = document.getElementById("edit-tags-list")
+
+	var hiddenForm = document.getElementById("edit-hidden-tags");
+	var formCount = hiddenForm.children
+
 </script>

@@ -23,18 +23,7 @@
 	margin-top: 2%;
 }
 .demo-list-control {
-
-}
-
-.demo-list-control li {
-	border: 1px solid #eee;
-	background: #eee;
-	display: inline;
-	padding-left: 1%;
-	padding-right: 1%;
-	padding-top: 0.5%;
-	padding-bottom: 0.5%;
-	margin-right: 5%;
+  width: 300px;
 }
 
 .demo-list-radio {
@@ -119,21 +108,4 @@
 #tag-add-container {
 	text-align: center;
 	margin-bottom: 3%;
-}
-
-
-#tag-display {
-	list-style: none;
-	margin-top: 2%;
-}
-
-#tag-display li {
-	border: 1px solid #eee;
-	background: #eee;
-	display: inline;
-	padding-left: 1%;
-	padding-right: 1%;
-	padding-top: 0.5%;
-	padding-bottom: 0.5%;
-	margin-right: 5%;
 }
