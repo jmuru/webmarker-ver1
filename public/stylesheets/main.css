@@ -141,3 +141,8 @@
 #search-form-container {
 	text-align: center;
 }
+
+.delete-bookmark {
+	margin-top: 1%;
+	text-align: center;
+}

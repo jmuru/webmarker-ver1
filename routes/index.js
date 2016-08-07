@@ -81,7 +81,7 @@ module.exports = function(app) {
             url: req.body.url,
             tags: req.body.edtags
         }
-        console.log(update);
+        // console.log(update);
         bookmark.findByIdAndUpdate(id, update, function(err, data) {
             if (err) {
                 return res.send(500);
@@ -93,6 +93,20 @@ module.exports = function(app) {
             console.log(data);
             res.redirect('/show');
         });
+    });
+
+    app.post('/delete/:id', function (req, res) {
+        // delete specified bookmark
+        var id = req.params.id;
+        if (!id) {
+            return res.send(404);
+        }
+        bookmark.findByIdAndRemove(id, function (err) {
+            if (err) throw err;
+            console.log("bookmark deleted");
+        })
+        // redirect to show page after delete operation
+        res.redirect('/show');
     });
 
 };

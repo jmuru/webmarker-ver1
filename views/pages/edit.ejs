@@ -32,6 +32,15 @@
 	  </button>
 	</form>
 </div>
+
+<div class="delete-bookmark">
+	<form action="/delete/<%= bookmark._id %>" method="post">
+		<button id="book-delete-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">
+		  Delete Bookmark
+		</button>
+	</form>
+</div>
+
 <% include ../partials/footer.ejs %>
 </body>
 </html>
